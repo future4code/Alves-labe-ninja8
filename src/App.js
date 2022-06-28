@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import TelaCarrinho from "./Screens/TelaCarrinho";
+import TelaDetalhe from "./Screens/TelaDetalhe";
+import TelaFormulario from "./Screens/TelaFormulario";
+import TelaServicos from "./Screens/TelaServicos";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+export default class App extends React.Component {
+  state = {
+    tela : 0
+  }
+
+  changeScreen = (tela) =>{
+    this.setState({tela : tela})
+   }
+  
+ screen=() => {
+  switch (this.state.tela) {
+    case 1:
+    return <TelaServicos tela={this.changeScreen}/>
+    case 2:
+    return <TelaCarrinho tela={this.changeScreen}/>
+    case 3:
+    return <TelaFormulario tela={this.changeScreen}/>
+    case 4:
+    return <TelaDetalhe tela={this.changeScreen}/>
+    default:
+    return <div>
+      <h2>FAÇA SUA ESCOLHA</h2>
+      <button onClick={()=>this.changeScreen(3)}>Quero ser um Ninja!</button>
+      <button onClick={()=>this.changeScreen(1)}>Quero contratar um Ninja!</button>
     </div>
-  );
+ }
 }
 
-export default App;
+
+ 
+  render() {
+
+    return (
+      <div>
+        {this.screen()}
+      </div>
+    );
+  }
+}
+
