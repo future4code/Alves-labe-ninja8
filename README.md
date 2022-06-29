@@ -12,4 +12,4 @@ https://trello.com/b/XuNY3ddD/projeto-ninja
 ###A nossa paleta de cores escolhida:
 https://coolors.co/6c161f-952030-b82f41-e26569-e4b7a4-e2d8d6-bcb4b3-ccc7c1-404241-191b18
 ###Wireframe: 
-<img src='./img/WireframeNinja.jpg'>
+![WireframeNinja (2)](https://user-images.githubusercontent.com/104742734/176277875-d3c11fec-d7fb-4ba7-8262-c5d43ffcc43a.jpg)
