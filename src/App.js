@@ -3,6 +3,14 @@ import TelaCarrinho from "./Screens/TelaCarrinho";
 import TelaDetalhe from "./Screens/TelaDetalhe";
 import TelaFormulario from "./Screens/TelaFormulario";
 import TelaServicos from "./Screens/TelaServicos";
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  `
 
 export default class App extends React.Component {
   state = {
@@ -38,6 +46,7 @@ export default class App extends React.Component {
 
     return (
       <div>
+        <GlobalStyle/>
         {this.screen()}
       </div>
     );
