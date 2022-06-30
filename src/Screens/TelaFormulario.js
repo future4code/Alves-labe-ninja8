@@ -62,7 +62,6 @@ export default class TelaFormulario extends Component {
     this.setState({selectPagamento : [...this.state.selectPagamento, event.target.value]})
   }
   render() {
-    // console.log(this.addUser)
     return (
 
       <MainContainer>
