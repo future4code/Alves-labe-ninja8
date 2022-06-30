@@ -1,20 +1,21 @@
 import axios from 'axios'
 
-export const getAllJobs = () => {
-
-    axios.get(
+export const getAllJobs = async() => {
+    try{
+    const response = axios.get(
           `https://labeninjas.herokuapp.com/jobs`, 
           {
               headers: {
                   Authorization: "93a18548-d983-40d1-bcfe-f4862b3a6da1"
               }
           })
-  .then ((response)=>{
-     return(response.data.jobs)
-   } )
-  .catch ((err)=> {
+       const servicos = await Promise.all([response]);
+       const servicosJson = await servicos.json();
+        
+       return servicosJson
+    }catch(err){
       console.log(err.response)
-  })
+  }
 }
 export const  getJobByID = (id) => {
 
