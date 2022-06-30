@@ -10,6 +10,7 @@ export const getAllJobs = () => {
               }
           })
   .then ((response)=>{
+    //   console.log(response.data.jobs)
      return(response.data.jobs)
    } )
   .catch ((err)=> {
