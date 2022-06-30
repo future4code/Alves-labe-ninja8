@@ -1,8 +1,7 @@
 import axios from 'axios'
 
 export const getAllJobs = () => {
-
-    axios.get(
+    const response = axios.get(
           `https://labeninjas.herokuapp.com/jobs`, 
           {
               headers: {
@@ -17,6 +16,7 @@ export const getAllJobs = () => {
       console.log(err.response)
   })
 }
+
 export const  getJobByID = (id) => {
 
     axios.get(

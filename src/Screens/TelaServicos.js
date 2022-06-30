@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import styled from 'styled-components'
+import Filtros from '../Components/Filtros'
 
-const CaixaServico = styled.div`
-border: 1px solid black;
-`
+
 
 export default class TelaServicos extends Component {
   state = {
@@ -30,26 +28,14 @@ export default class TelaServicos extends Component {
   };
 
   render() {
-    const renderizarServicos = this.state.usuarios.map((servico) => {
-      return <CaixaServico>
-        <p>
-          {servico.title}
-        </p>
-        <p>
-          {servico.description}
-        </p>
-        <p>
-          {servico.price}
-        </p>
-      </CaixaServico>
-    })
-
+    
     return (
       <div>
+        <div>
+        <Filtros jobs={this.state.usuarios}/>
+        </div>
         <button onClick={() => this.props.tela(2)}>Carrinho</button>
-        <button onClick={() => this.props.tela(4)}>Detalhe Card</button>
         <button onClick={() => this.props.tela(0)}>Voltar</button>
-        {renderizarServicos}
       </div>
     )
   }
