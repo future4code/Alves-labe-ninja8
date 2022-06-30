@@ -4,6 +4,7 @@ import TelaDetalhe from "./Screens/TelaDetalhe";
 import TelaFormulario from "./Screens/TelaFormulario";
 import TelaServicos from "./Screens/TelaServicos";
 import { createGlobalStyle } from 'styled-components';
+import { getAllJobs } from "./Components/FuncoesApi";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -14,8 +15,14 @@ const GlobalStyle = createGlobalStyle`
 
 export default class App extends React.Component {
   state = {
-    tela : 0
-  }
+    tela : 0,
+    servicos : []
+}
+componentDidMount () {
+const servicos = getAllJobs()
+console.log(servicos)
+// this.setState({servicos : servicos})
+}
 
   changeScreen = (tela) =>{
     this.setState({tela : tela})

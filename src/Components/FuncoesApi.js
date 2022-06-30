@@ -1,4 +1,6 @@
-getAllJobs = () => {
+import axios from 'axios'
+
+export const getAllJobs = () => {
 
     axios.get(
           `https://labeninjas.herokuapp.com/jobs`, 
@@ -8,13 +10,13 @@ getAllJobs = () => {
               }
           })
   .then ((response)=>{
-      console.log(response)
+     return(response.data.jobs)
    } )
   .catch ((err)=> {
       console.log(err.response)
   })
 }
-getJobByID = (id) => {
+export const  getJobByID = (id) => {
 
     axios.get(
           `https://labeninjas.herokuapp.com/jobs/${id}`, 
@@ -30,25 +32,19 @@ getJobByID = (id) => {
       console.log(err.response)
   })
 }
-createJob = () => {
-    const body = {
-        title: "estado do forms titulo",
-        description : "estado descriçao ",
-        price : "estado preço",
-        paymentMethods : ["Array de methodos de pagamento no estado"],
-        dueDate : "Data salva no estado"
-    }
+export const createJob = (objeto) => {
+    const body = objeto
     axios.post(
-          `https://labeninjas.herokuapp.com/jobs/`, 
+          `https://labeninjas.herokuapp.com/jobs/`,body,
           {
               headers: {
                   Authorization: "93a18548-d983-40d1-bcfe-f4862b3a6da1"
               }
           })
   .then ((response)=>{
-      console.log(response)
+      alert(response.data.message)
    } )
   .catch ((err)=> {
-      console.log(err.response)
+      console.log(err.response.data.message)
   })
 }
