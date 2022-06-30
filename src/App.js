@@ -5,6 +5,8 @@ import TelaFormulario from "./Screens/TelaFormulario";
 import TelaServicos from "./Screens/TelaServicos";
 import { createGlobalStyle } from 'styled-components';
 import { getAllJobs } from "./Components/FuncoesApi";
+import { ChakraProvider } from '@chakra-ui/react';
+import { HeaderStyle, EscolhaStyle } from "./Components/Header";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -39,11 +41,11 @@ console.log(servicos)
     case 4:
     return <TelaDetalhe tela={this.changeScreen}/>
     default:
-    return <div>
+    return <EscolhaStyle>
       <h2>FAÇA SUA ESCOLHA</h2>
       <button onClick={()=>this.changeScreen(3)}>Quero ser um Ninja!</button>
       <button onClick={()=>this.changeScreen(1)}>Quero contratar um Ninja!</button>
-    </div>
+    </EscolhaStyle>
  }
 }
 
@@ -51,10 +53,14 @@ console.log(servicos)
  
   render() {
 
-    return (
-      <div>
+    return ( 
+      <div> 
+        <HeaderStyle>
+          <h1>O Oitavo LabNinja</h1>
+        </HeaderStyle>
         <GlobalStyle/>
         {this.screen()}
+
       </div>
     );
   }
