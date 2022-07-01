@@ -1,22 +1,5 @@
 import axios from 'axios'
 
-export const getAllJobs = () => {
-    const response = axios.get(
-          `https://labeninjas.herokuapp.com/jobs`, 
-          {
-              headers: {
-                  Authorization: "93a18548-d983-40d1-bcfe-f4862b3a6da1"
-              }
-          })
-  .then ((response)=>{
-    //   console.log(response.data.jobs)
-     return(response.data.jobs)
-   } )
-  .catch ((err)=> {
-      console.log(err.response)
-  })
-}
-
 export const  getJobByID = (id) => {
 
     axios.get(
