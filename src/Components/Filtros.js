@@ -1,8 +1,57 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+// Aqui fica o corpo dos cards ;-;
+const DisplayWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  justify-content: center;
+`
+
+// Aqui fica a caixinha de filtro c:
+const CaixaStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial;
+  option {
+    font-family: Arial;
+    background-color: #FFF6F3;
+  }
+`
+
+
+// Aqui fica a estilização dos cards <3
 const CaixaServico = styled.div`
-border: 1px solid black;
+  text-align: center;
+  width: 20%;
+  border: 1px solid #FFF6F3;
+  border-radius: 15px;
+  margin: 10px 0px;
+  background-color: #FFF6F3;
+  box-shadow: 5px 5px 10px #BCB4B3;
+  button { /* Aqui fica a customização dos botões */
+    background-color: #6C161F;
+    color: #E2D8D6;
+    width: 200px;
+    height: 20px;
+    border-radius: 50px;
+    border-color: #952030;
+    margin: 5px;
+      :hover {
+        cursor: pointer;
+        background-color: #FFF6F3;
+        color: #952030;
+      }
+    }
+    h3 {
+      text-transform: uppercase;
+      font-family: Arial;
+    }
+    p {
+      font-family: Arial;
+    }
 `
 
 export default class Filtros extends Component {
@@ -29,30 +78,30 @@ export default class Filtros extends Component {
 
 
   render() {
-    const displayJobs = this.props.jobs.sort((a, b) => {
-      switch (this.state.ordernar) {
-        case 'crescente':
-          return a.price - b.price
 
-        case 'decrescente':
-          return b.price - a.price
 
-        case 'alfabetica':
-          return a.title.localeCompare(b.title)
-
-        case 'data-recente':
-          return new Date(a.dueDate) - new Date(b.dueDate)
-
-        case 'data-distante':
-          return new Date(b.dueDate) - new Date(a.dueDate)
-
-        default:
-          console.log('caiu default')
-          return 0
-
-      }
-    })
-
+    const displayJobs = this.props.jobs.sort( (a,b) => {
+    switch (this.state.ordernar) {
+      case 'crescente':
+        return  a.price - b.price
+       
+      case 'decrescente':
+         return b.price - a.price 
+        
+      case 'alfabetica':
+        return a.title.localeCompare(b.title) 
+    
+      case 'data-recente':
+       return new Date(a.dueDate) - new Date(b.dueDate) 
+     
+      case 'data-distante':
+      return new Date(b.dueDate) - new Date(a.dueDate)
+     
+      default:
+        console.log('caiu default')
+        return 0
+       
+    }})
       .filter((servico) => servico.price <= this.state.precoMax || this.state.precoMax === '')
       .filter((servico) => servico.price <= this.state.precoMin || this.state.precoMin === '')
 
@@ -63,10 +112,6 @@ export default class Filtros extends Component {
         const searchText = this.state.search.toLocaleLowerCase()
         return jobTitle.includes(searchText) || jobDescription.includes(searchText)
       })
-
-
-
-
       .map((servico) => {
         return <CaixaServico>
           <h4>
@@ -87,8 +132,10 @@ export default class Filtros extends Component {
       })
     return (
       <div>
-        
-        <label>Ordernar por :</label>
+
+        <CaixaStyle>
+        <label><h4>Ordernar por: </h4></label>
+
         <select value={this.state.ordernar} onChange={this.handleSelect}>
           <option value={'crescente'}>Preço crescente</option>
           <option value={'decrescente'}>Preço decrescente</option>
@@ -96,6 +143,9 @@ export default class Filtros extends Component {
           <option value={'data-distante'}>Prazo mais distante</option>
           <option value={'alfabetica'}>Ordem Alfabética</option>
         </select>
+
+        </CaixaStyle>
+
         <input
             value={this.state.search}
             onChange={this.handleSearch}
@@ -112,7 +162,7 @@ export default class Filtros extends Component {
           value={this.state.precoMin}
           onChange={this.handleInputMin}
         />
-        <div>{displayJobs}</div>
+  <DisplayWrap>{displayJobs}</DisplayWrap>
       </div>
     )
   }

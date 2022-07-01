@@ -1,9 +1,31 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Filtros from '../Components/Filtros'
+import { HeaderStyle } from '../Components/Header'
+import oito from '../img/8.png'
+import styled from 'styled-components'
 
-
-
+// Aqui fica os botões de Carrinho e Voltar dos cards :)
+const ServicosStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: arial;
+  button { /* Aqui fica a estilização dos botões */
+    background-color: #6C161F;
+    color: #E2D8D6;
+    width: 400px;
+    height: 50px;
+    border-radius: 50px;
+    border-color: #952030;
+    margin: 5px;
+      :hover {
+        cursor: pointer;
+        background-color: #E2D8D6;
+        color: #952030;
+      }
+    }   
+`
 export default class TelaServicos extends Component {
   state = {
     usuarios: [],
@@ -39,12 +61,17 @@ export default class TelaServicos extends Component {
     
     return (
       <div>
+        <HeaderStyle>
+        <img src={oito}></img><h1>O oitavo ninja</h1><img src={oito}></img>
+        </HeaderStyle>
         <div>
         <Filtros jobs={this.state.usuarios} adiciona={this.adicionaAoCarrinho} 
         tela={this.props.tela} detalhe={this.retornaItemDetalhe}/>
         </div>
-        <button onClick={() => this.props.tela(2)}>Carrinho</button>
-        <button onClick={() => this.props.tela(0)}>Voltar</button>
+        <ServicosStyle>
+        <button onClick={() => this.props.tela(2)}><h3>Carrinho</h3></button>
+        <button onClick={() => this.props.tela(0)}><h3>Voltar</h3></button>
+        </ServicosStyle>
       </div>
     )
   }
