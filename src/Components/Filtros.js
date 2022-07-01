@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import bag from '../img/bag.png'
+import bag2 from '../img/bag2.png'
 
 // Aqui fica o corpo dos cards ;-;
 const DisplayWrap = styled.div`
@@ -13,12 +15,24 @@ const DisplayWrap = styled.div`
 const CaixaStyle = styled.div`
   display: flex;
   justify-content: center;
+  padding: 1vh;
+  gap: 2vw;
   align-items: center;
   font-family: Arial;
   option {
     font-family: Arial;
     background-color: #FFF6F3;
   }
+  img {
+    width: 3.5vw;
+    justify-self: flex-end;
+  }
+  button {
+    background-color: inherit;
+    border: none;
+    height: 5vh;
+  }
+
 `
 
 
@@ -60,6 +74,7 @@ export default class Filtros extends Component {
     precoMax: '',
     precoMin: '',
     search: '',
+    carrinho: false,
 
   }
 
@@ -74,6 +89,9 @@ export default class Filtros extends Component {
   }
   handleSearch = (e) => {
     this.setState({ search: e.target.value })
+  }
+  handleIcon = () => {
+    this.setState({carrinho: true})
   }
 
 
@@ -114,28 +132,30 @@ export default class Filtros extends Component {
       })
       .map((servico) => {
         return <CaixaServico>
-          <h4>
+          <h3>
             {servico.title}
-          </h4>
+          </h3>
           <p>
-            {servico.description}
-          </p>
-          <p>
-            {servico.price.toFixed(2)}
+            R$ {servico.price.toFixed(2)}
           </p>
           <p>
             {(servico.dueDate.split('T')[0]).split('-').reverse().join('/')}
           </p>
           <button onClick={() => { this.props.tela(4); this.props.detalhe(servico.id) }}>Detalhe Card</button>
-          <button onClick={() => this.props.adiciona(servico.id)}>Adicionar ao Carrinho</button>
+          <button onClick={() => {this.props.adiciona(servico.id); this.handleIcon()}}>Adicionar ao Carrinho</button>
         </CaixaServico>
       })
+
+      let iconeCarrinho 
+      this.state.carrinho? iconeCarrinho = <img src={bag2} alt='carrinho'></img>: iconeCarrinho = <img src={bag} alt='carrinho'></img>
+
     return (
       <div>
 
         <CaixaStyle>
-        <label><h4>Ordernar por: </h4></label>
-
+          
+        <div>
+        <label>Filtrar: </label>
         <select value={this.state.ordernar} onChange={this.handleSelect}>
           <option value={'crescente'}>Preço crescente</option>
           <option value={'decrescente'}>Preço decrescente</option>
@@ -143,8 +163,9 @@ export default class Filtros extends Component {
           <option value={'data-distante'}>Prazo mais distante</option>
           <option value={'alfabetica'}>Ordem Alfabética</option>
         </select>
+        </div>
 
-        </CaixaStyle>
+        
 
         <input
             value={this.state.search}
@@ -162,6 +183,8 @@ export default class Filtros extends Component {
           value={this.state.precoMin}
           onChange={this.handleInputMin}
         />
+        <button onClick={() => this.props.tela(2)}>{iconeCarrinho}</button>
+        </CaixaStyle>
   <DisplayWrap>{displayJobs}</DisplayWrap>
       </div>
     )

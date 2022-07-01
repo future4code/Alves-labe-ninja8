@@ -5,6 +5,7 @@ import { HeaderStyle } from '../Components/Header'
 import oito from '../img/8.png'
 import styled from 'styled-components'
 
+
 // Aqui fica os botões de Carrinho e Voltar dos cards :)
 const ServicosStyle = styled.div`
   display: flex;
@@ -26,6 +27,7 @@ const ServicosStyle = styled.div`
       }
     }   
 `
+
 export default class TelaServicos extends Component {
   state = {
     usuarios: [],
