@@ -25,7 +25,7 @@ componentDidUpdate(){
     this.setState({tela : tela})
    }
   atualizaCarrinho = (array) => {
-    this.setState({carrinho: [...this.state.carrinho, array]})
+    this.setState({carrinho: this.state.carrinho.concat(array)})
   }
  screen=() => {
   switch (this.state.tela) {
