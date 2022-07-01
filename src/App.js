@@ -4,6 +4,7 @@ import TelaDetalhe from "./Screens/TelaDetalhe";
 import TelaFormulario from "./Screens/TelaFormulario";
 import TelaServicos from "./Screens/TelaServicos";
 import { createGlobalStyle } from 'styled-components';
+import { HeaderStyle } from "./Components/Header";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -68,8 +69,11 @@ componentDidUpdate(){
 
     return (
       <div>
+        <HeaderStyle>
+        </HeaderStyle>
         <GlobalStyle/>
         {this.screen()}
+        
       </div>
     );
   }
