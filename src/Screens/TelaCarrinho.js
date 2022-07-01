@@ -8,7 +8,7 @@ export default class TelaCarrinho extends Component {
     console.log(this.props.items)
   }
   componentDidUpdate() {
-    this.precoTotal()
+    
   }
 
   

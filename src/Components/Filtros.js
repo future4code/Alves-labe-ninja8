@@ -28,10 +28,10 @@ export default class Filtros extends Component {
         return a.title.localeCompare(b.title) 
     
       case 'data-recente':
-       return new Date(b.dueDate) - new Date(a.dueDate) 
+       return new Date(a.dueDate) - new Date(b.dueDate) 
      
       case 'data-distante':
-      return new Date(a.dueDate) - new Date(b.dueDate)
+      return new Date(b.dueDate) - new Date(a.dueDate)
      
       default:
         console.log('caiu default')
@@ -47,12 +47,12 @@ export default class Filtros extends Component {
           {servico.description}
         </p>
         <p>
-          {servico.price}
+          {servico.price.toFixed(2)}
         </p>
         <p>
-          {servico.dueDate}
+          {(servico.dueDate.split('T')[0]).split('-').reverse().join('/')}
         </p>
-        <button onClick={() => this.props.tela(4)}>Detalhe Card</button>
+        <button onClick={() => {this.props.tela(4); this.props.detalhe(servico.id)}}>Detalhe Card</button>
         <button onClick={() => this.props.adiciona(servico.id)}>Adicionar ao Carrinho</button>
       </CaixaServico>
     })

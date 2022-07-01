@@ -14,12 +14,12 @@ export default class TelaServicos extends Component {
     this.mostrarServico()
   }
   adicionaAoCarrinho = (id) => {
-    const carrinhoFuncao = this.state.usuarios.filter((servico) => {
-      if (servico.id === id){
-        return true
-      }else{ return false }
-    })
+    const carrinhoFuncao = this.state.usuarios.filter((servico) => {return servico.id === id})
     this.props.adiciona(carrinhoFuncao)
+  }
+  retornaItemDetalhe = (id) => {
+    const itemDetalhe = this.state.usuarios.filter((servico) => {return servico.id === id})
+    this.props.detalhe(itemDetalhe)
   }
 
   mostrarServico = () => {
@@ -40,7 +40,8 @@ export default class TelaServicos extends Component {
     return (
       <div>
         <div>
-        <Filtros jobs={this.state.usuarios} adiciona={this.adicionaAoCarrinho}/>
+        <Filtros jobs={this.state.usuarios} adiciona={this.adicionaAoCarrinho} 
+        tela={this.props.tela} detalhe={this.retornaItemDetalhe}/>
         </div>
         <button onClick={() => this.props.tela(2)}>Carrinho</button>
         <button onClick={() => this.props.tela(0)}>Voltar</button>
