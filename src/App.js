@@ -26,15 +26,25 @@ componentDidUpdate(){
    }
   atualizaCarrinho = (array) => {
     this.setState({carrinho: this.state.carrinho.concat(array)})
+    //Carrinho remove dois itens iguais de uma vez só, arrumaí (toda vez q add tem q trocar id)
   }
+removeCarrinho = (id)=>{
+const remover = this.state.carrinho.filter(itemCar => {
+  return id !== itemCar.id
+})
+this.setState({carrinho: remover})
+}
+detalheCard =()=>{
+  // console.log('nao consiguuuu, meu deus meu senhor, me ajuda pf')
+}
  screen=() => {
   switch (this.state.tela) {
     case 1:
-    return <TelaServicos tela={this.changeScreen} adiciona={this.atualizaCarrinho}/>
+    return <TelaServicos tela={this.changeScreen} adiciona={this.atualizaCarrinho} />
     case 2:
-    return <TelaCarrinho tela={this.changeScreen} items={this.state.carrinho}/>
+    return <TelaCarrinho tela={this.changeScreen} items={this.state.carrinho} remove={this.removeCarrinho}/>
     case 3:
-    return <TelaFormulario tela={this.changeScreen}/>
+    return <TelaFormulario tela={this.changeScreen} />
     case 4:
     return <TelaDetalhe tela={this.changeScreen}/>
     default:

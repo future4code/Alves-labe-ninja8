@@ -5,7 +5,7 @@ export default class TelaDetalhe extends Component {
     return (
       <div> 
         <h1>TelaDetalhe</h1>
-        <button onClick={()=> this.props.tela(1)}>Voltar</button>
+        <button>Voltar</button>
       </div>
     )
   }
