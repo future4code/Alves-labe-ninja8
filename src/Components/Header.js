@@ -33,6 +33,7 @@ export const EscolhaStyle = styled.div`
     background-color: #e2d8d6;
     justify-content: center;
     align-items: center;
+
     font-family: arial; 
     button { /* Aqui fica a estilização dos botões */
         background-color: #6C161F;
@@ -49,3 +50,4 @@ export const EscolhaStyle = styled.div`
         }
     }   
 `
+

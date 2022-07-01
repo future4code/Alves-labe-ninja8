@@ -5,9 +5,12 @@ import TelaDetalhe from "./Screens/TelaDetalhe";
 import TelaFormulario from "./Screens/TelaFormulario";
 import TelaServicos from "./Screens/TelaServicos";
 import { createGlobalStyle } from 'styled-components';
+
 import { HeaderStyle, EscolhaStyle, ImgStyle } from './Components/Header' 
 import ninja2 from './img/ninja-maos.png'
 import oito from './img/8.png'
+
+
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -32,7 +35,7 @@ componentDidUpdate(){
 
   }
   detalheCard=(item)=>{
-    this.setState({itemDetalhe : item })
+    this.setState({ itemDetalhe: item })
   }
   
   atualizaCarrinho = (array) => {
@@ -81,8 +84,11 @@ componentDidUpdate(){
 
     return (
       <div>
+        <HeaderStyle>
+        </HeaderStyle>
         <GlobalStyle/>
         {this.screen()}
+        
       </div>
     );
   }
