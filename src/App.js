@@ -4,7 +4,7 @@ import TelaDetalhe from "./Screens/TelaDetalhe";
 import TelaFormulario from "./Screens/TelaFormulario";
 import TelaServicos from "./Screens/TelaServicos";
 import { createGlobalStyle } from 'styled-components';
-import { getAllJobs } from "./Components/FuncoesApi";
+
 
 const GlobalStyle = createGlobalStyle`
   body {
