@@ -1,15 +1,19 @@
 import React from "react";
+import styled from "styled-components";
 import TelaCarrinho from "./Screens/TelaCarrinho";
 import TelaDetalhe from "./Screens/TelaDetalhe";
 import TelaFormulario from "./Screens/TelaFormulario";
 import TelaServicos from "./Screens/TelaServicos";
 import { createGlobalStyle } from 'styled-components';
-
+import { HeaderStyle, EscolhaStyle, ImgStyle } from './Components/Header' 
+import ninja2 from './img/ninja-maos.png'
+import oito from './img/8.png'
 
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    background-color: #e2d8d6;
   }
   `
 
@@ -55,9 +59,18 @@ componentDidUpdate(){
     return <TelaDetalhe tela={this.changeScreen} item={this.state.itemDetalhe}/>
     default:
     return <div>
-      <h2>FAÇA SUA ESCOLHA</h2>
-      <button onClick={()=>this.changeScreen(3,0)}>Quero ser um Ninja!</button>
-      <button onClick={()=>this.changeScreen(1,0)}>Quero contratar um Ninja!</button>
+      <HeaderStyle>
+        <img src={oito}></img><h1>O oitavo ninja</h1><img src={oito}></img>
+      
+      </HeaderStyle>
+      <ImgStyle>
+      <img src={ninja2}></img> 
+      </ImgStyle>
+      <EscolhaStyle>
+      <button onClick={()=>this.changeScreen(3,0)}><h3>Quero ser um Ninja!</h3></button>
+      <button onClick={()=>this.changeScreen(1,0)}><h3>Quero contratar um Ninja!</h3></button>
+      </EscolhaStyle>
+      
     </div>
  }
 }
