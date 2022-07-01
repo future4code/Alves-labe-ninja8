@@ -7,12 +7,20 @@ import Filtros from '../Components/Filtros'
 export default class TelaServicos extends Component {
   state = {
     usuarios: [],
+
   }
 
   componentDidMount() {
     this.mostrarServico()
   }
-
+  adicionaAoCarrinho = (id) => {
+    const carrinhoFuncao = this.state.usuarios.filter((servico) => {
+      if (servico.id === id){
+        return true
+      }else{ return false }
+    })
+    this.props.adiciona(carrinhoFuncao)
+  }
 
   mostrarServico = () => {
     axios.get("https://labeninjas.herokuapp.com/jobs", {
@@ -32,7 +40,7 @@ export default class TelaServicos extends Component {
     return (
       <div>
         <div>
-        <Filtros jobs={this.state.usuarios}/>
+        <Filtros jobs={this.state.usuarios} adiciona={this.adicionaAoCarrinho}/>
         </div>
         <button onClick={() => this.props.tela(2)}>Carrinho</button>
         <button onClick={() => this.props.tela(0)}>Voltar</button>

@@ -16,24 +16,23 @@ const GlobalStyle = createGlobalStyle`
 export default class App extends React.Component {
   state = {
     tela : 0,
-    servicos : []
+    carrinho: []
 }
-componentDidMount () {
-const servicos = getAllJobs()
-console.log(servicos)
-// this.setState({servicos : servicos})
+componentDidUpdate(){
+  console.log(this.state.carrinho)
 }
-
   changeScreen = (tela) =>{
     this.setState({tela : tela})
    }
-  
+  atualizaCarrinho = (array) => {
+    this.setState({carrinho: [...this.state.carrinho, array]})
+  }
  screen=() => {
   switch (this.state.tela) {
     case 1:
-    return <TelaServicos tela={this.changeScreen}/>
+    return <TelaServicos tela={this.changeScreen} adiciona={this.atualizaCarrinho}/>
     case 2:
-    return <TelaCarrinho tela={this.changeScreen}/>
+    return <TelaCarrinho tela={this.changeScreen} items={this.state.carrinho}/>
     case 3:
     return <TelaFormulario tela={this.changeScreen}/>
     case 4:

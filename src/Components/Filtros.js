@@ -20,29 +20,29 @@ export default class Filtros extends Component {
     switch (this.state.ordernar) {
       case 'crescente':
         return  a.price - b.price
-        break;
+       
       case 'decrescente':
          return b.price - a.price 
-        break;
+        
       case 'alfabetica':
         return a.title.localeCompare(b.title) 
-        break;
+    
       case 'data-recente':
        return new Date(b.dueDate) - new Date(a.dueDate) 
-        break;
+     
       case 'data-distante':
       return new Date(a.dueDate) - new Date(b.dueDate)
-        break;
+     
       default:
         console.log('caiu default')
         return 0
-        break;
+       
     }})
     .map((servico) => {
       return <CaixaServico>
-        <p>
+        <h4>
           {servico.title}
-        </p>
+        </h4>
         <p>
           {servico.description}
         </p>
@@ -53,6 +53,7 @@ export default class Filtros extends Component {
           {servico.dueDate}
         </p>
         <button onClick={() => this.props.tela(4)}>Detalhe Card</button>
+        <button onClick={() => this.props.adiciona(servico.id)}>Adicionar ao Carrinho</button>
       </CaixaServico>
     })
     return (
