@@ -28,7 +28,7 @@ componentDidUpdate(){
 
   }
   detalheCard=(item)=>{
-    this.setState({itemDetalhe : item })
+    this.setState({ itemDetalhe: item })
   }
   
   atualizaCarrinho = (array) => {
