@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { createJob } from '../Components/FuncoesApi'
-
+import { HeaderStyle } from '../Components/Header'
 
 const MainContainer = styled.div`
-height:100vh;
+height:98vh;
 `
 
 const InputCadastro = styled.input`
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  padding-top:1%;
+  margin-top:1%;
+`
+const InputData = styled.input`
+margin-top:0.5%;
 `
 const ConteinerInfo = styled.div`
 display:flex;
@@ -15,12 +24,33 @@ flex-direction:column;
 align-items:center;
 padding-top:10px;
 `
+const ConteinerBotoes = styled.div`
+`
+const LegendaPagamento = styled.label`
+padding-bottom:1%;
+padding-top:5%;
+`
 const SelectOption = styled.select`
-width: 50px;
+width: 70%;
+overflow: hidden;
 `
 const ConteinerPagamento = styled.div`
+display:flex;
+flex-direction:column;
+align-items:center;
+padding-bottom:1%;
 `
 const BotaoPagamento = styled.button`
+    background-color: #6C161F;
+        color: #E2D8D6;
+        border-radius: 50px;
+        border-color: #952030;
+        margin: 5px;
+        :hover {
+            cursor: pointer;
+            background-color: #952030;
+            color: #969090;
+        }
 `
 
 export default class TelaFormulario extends Component {
@@ -59,7 +89,7 @@ export default class TelaFormulario extends Component {
     this.setState({ inputData: event.target.value })
   }
   onChangePagamento = (event) => {
-    this.setState({selectPagamento : [...this.state.selectPagamento, event.target.value]})
+    this.setState({selectPagamento : [...this.state.selectPagamento,` ${event.target.value}`]})
   }
   render() {
     return (
@@ -80,26 +110,28 @@ export default class TelaFormulario extends Component {
             value={this.state.inputPreco}
             onChange={this.onChangePreco}
           />
-          <label for="pagamentos">Escolha a forma de pagamento:</label>
           <ConteinerPagamento>
-            <div>{this.state.selectPagamento}</div>
+          <LegendaPagamento for="pagamentos">Escolha a forma de pagamento:</LegendaPagamento>
             <SelectOption value={this.state.selectPagamento} onChange={this.onChangePagamento}>
-              <option value="credito">Cartão de Crédito</option>
-              <option value="debito">Cartão de Débito</option>
-              <option value="paypal">Paypal</option>
-              <option value="boleto">Boleto</option>
-              <option value="pix">Pix</option>
+              <option value="Credito">Cartão de Crédito</option>
+              <option value="Debito">Cartão de Débito</option>
+              <option value="Paypal">Paypal</option>
+              <option value="Boleto">Boleto</option>
+              <option value="Pix">Pix</option>
             </SelectOption>
           </ConteinerPagamento>
-          <InputCadastro
+            <div>Foram selecionados as opções:<br/>{this.state.selectPagamento}</div>
+          <InputData
             id="date"
             type="date"
             onChange={this.onChangeData}
             value={this.state.inputData}
           />
-            <BotaoPagamento onClick={this.addUser}>Cadastrar Serviço</BotaoPagamento>
+          <BotaoPagamento onClick={this.addUser}>Cadastrar Serviço</BotaoPagamento>
+        <ConteinerBotoes>
+        <BotaoPagamento onClick={()=> this.props.tela(0)}>Voltar</BotaoPagamento>
+        </ConteinerBotoes>
         </ConteinerInfo>
-        <button onClick={()=> this.props.tela(0)}>Voltar</button>
       </MainContainer>
     )
   }

@@ -12,7 +12,7 @@ export default class TelaDetalhe extends Component {
         {this.props.item.map((item)=>{
           return <div>
           <h1>{item.title}</h1>
-          <p>Este ninja cobra: {item.price}</p>
+          <p>Este ninja cobra: R$ {item.price},00</p>
           <p>Para :{item.description}</p>
           <p>Serviço será feito até: {(item.dueDate.split('T')[0]).split('-').reverse().join('/')}</p>
           </div>
