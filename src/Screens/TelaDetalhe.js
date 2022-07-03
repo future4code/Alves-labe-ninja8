@@ -60,6 +60,7 @@ export default class TelaDetalhe extends Component {
           <h3>{item.title}</h3>
           <p>Este ninja cobra: R$ {item.price.toFixed(2)}</p>
           <p>Descrição: {item.description}</p>
+          <p>Métodos de pagamento aceito pelo ninja:<br></br> {item.paymentMethods.join('/')}</p>
           <p>Serviço será feito até: {(item.dueDate.split('T')[0]).split('-').reverse().join('/')}</p>
           </div>
         }
