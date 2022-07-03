@@ -1,6 +1,6 @@
 # O Oitavo LabeNinja
 
-####Projeto Labeninjas
+###Projeto Labeninjas
 
 
 oitavoninja.surge.sh
@@ -48,8 +48,8 @@ https://coolors.co/6c161f-952030-b82f41-e26569-e4b7a4-e2d8d6-bcb4b3-ccc7c1-40424
 
 ### Colaboradores
 
-Arthur Grossi Fernandes
-Gabriela Tobias
-Pétrick Machado de Almeida Grillo
-Adrielli de Aguiar Gross
-Ruan Marques
+*Arthur Grossi Fernandes
+*Gabriela Tobias
+*Pétrick Machado de Almeida Grillo
+*Adrielli de Aguiar Gross
+*Ruan Marques
