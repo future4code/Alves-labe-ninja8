@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const HeaderStyle = styled.div`
     display: flex;
     background-color: #6C161F;
-    padding-top: 3vh;
+    padding-top: 1vh;
     text-transform: uppercase;
     color: #E2D8D6;
     align-items: center;

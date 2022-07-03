@@ -6,7 +6,7 @@ import oito from '../img/8.png'
 
 
 const MainContainer = styled.div`
-  height: 100vh;
+height:98vh;
 `
 // Aqui fica os espaços entre os inputs xD
 const InputCadastro = styled.input`
@@ -40,9 +40,11 @@ const ConteinerInfo = styled.div`
       }
     }   
 `
+
 // Aqui é o espaço do botão select de pagamento :3
 const SelectOption = styled.select`
 width: 150px;
+
 `
 
 
@@ -82,7 +84,7 @@ export default class TelaFormulario extends Component {
     this.setState({ inputData: event.target.value })
   }
   onChangePagamento = (event) => {
-    this.setState({selectPagamento : [...this.state.selectPagamento, event.target.value]})
+    this.setState({selectPagamento : [...this.state.selectPagamento,` ${event.target.value}`]})
   }
   render() {
     return (
@@ -106,6 +108,8 @@ export default class TelaFormulario extends Component {
             value={this.state.inputPreco}
             onChange={this.onChangePreco}
           />
+
+
           <label for="pagamentos">Forma de pagamento:</label>
             <div>{this.state.selectPagamento}</div>
             <SelectOption value={this.state.selectPagamento} onChange={this.onChangePagamento}>
@@ -116,15 +120,18 @@ export default class TelaFormulario extends Component {
               <option value="Pix ">Pix</option>
             </SelectOption>
           <InputCadastro
+
             id="date"
             type="date"
             onChange={this.onChangeData}
             value={this.state.inputData}
           />
+
             <button onClick={this.addUser}>Cadastrar</button>
         
         <button onClick={()=> this.props.tela(0)}>Voltar</button>
       </ConteinerInfo>
+
       </MainContainer>
       
     )
