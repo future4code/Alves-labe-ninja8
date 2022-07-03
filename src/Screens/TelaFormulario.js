@@ -2,56 +2,51 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { createJob } from '../Components/FuncoesApi'
 import { HeaderStyle } from '../Components/Header'
+import oito from '../img/8.png'
+
 
 const MainContainer = styled.div`
 height:98vh;
 `
-
+// Aqui fica os espaços entre os inputs xD
 const InputCadastro = styled.input`
-  padding: 16px 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: #f1f1f1;
-  padding-top:1%;
-  margin-top:1%;
+  margin-top: 0.7vh;
 `
-const InputData = styled.input`
-margin-top:0.5%;
-`
+
+// Aqui fica a estilização do Formulário e.e
 const ConteinerInfo = styled.div`
-display:flex;
-flex-direction:column;
-align-items:center;
-padding-top:10px;
-`
-const ConteinerBotoes = styled.div`
-`
-const LegendaPagamento = styled.label`
-padding-bottom:1%;
-padding-top:5%;
-`
-const SelectOption = styled.select`
-width: 70%;
-overflow: hidden;
-`
-const ConteinerPagamento = styled.div`
-display:flex;
-flex-direction:column;
-align-items:center;
-padding-bottom:1%;
-`
-const BotaoPagamento = styled.button`
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding-top:10px;
+  font-family: arial;
+  label {
+    margin-top: 4vh;
+    margin-bottom: 1vh;
+    font-weight: bold;
+  }
+  button { /* Aqui fica a estilização dos botões */
     background-color: #6C161F;
-        color: #E2D8D6;
-        border-radius: 50px;
-        border-color: #952030;
-        margin: 5px;
-        :hover {
-            cursor: pointer;
-            background-color: #952030;
-            color: #969090;
-        }
+    color: #E2D8D6;
+    width: 150px;
+    height: 20px;
+    border-radius: 50px;
+    border-color: #952030;
+    margin: 5px;
+      :hover {
+        cursor: pointer;
+        background-color: #E2D8D6;
+        color: #952030;
+      }
+    }   
 `
+
+// Aqui é o espaço do botão select de pagamento :3
+const SelectOption = styled.select`
+width: 150px;
+
+`
+
 
 export default class TelaFormulario extends Component {
   state = {
@@ -93,8 +88,11 @@ export default class TelaFormulario extends Component {
   }
   render() {
     return (
-
       <MainContainer>
+        <HeaderStyle>
+        <img src={oito}></img><h1>O oitavo ninja</h1><img src={oito}></img>
+      
+      </HeaderStyle>
         <ConteinerInfo>
           <h2>Cadastre seu serviço:</h2>
           <InputCadastro
@@ -110,29 +108,32 @@ export default class TelaFormulario extends Component {
             value={this.state.inputPreco}
             onChange={this.onChangePreco}
           />
-          <ConteinerPagamento>
-          <LegendaPagamento for="pagamentos">Escolha a forma de pagamento:</LegendaPagamento>
+
+
+          <label for="pagamentos">Forma de pagamento:</label>
+            <div>{this.state.selectPagamento}</div>
             <SelectOption value={this.state.selectPagamento} onChange={this.onChangePagamento}>
-              <option value="Credito">Cartão de Crédito</option>
-              <option value="Debito">Cartão de Débito</option>
-              <option value="Paypal">Paypal</option>
-              <option value="Boleto">Boleto</option>
-              <option value="Pix">Pix</option>
+              <option value="Crédito ">Cartão de Crédito</option>
+              <option value="Débito ">Cartão de Débito</option>
+              <option value="PayPal ">Paypal</option>
+              <option value="Boleto ">Boleto</option>
+              <option value="Pix ">Pix</option>
             </SelectOption>
-          </ConteinerPagamento>
-            <div>Foram selecionados as opções:<br/>{this.state.selectPagamento}</div>
-          <InputData
+          <InputCadastro
+
             id="date"
             type="date"
             onChange={this.onChangeData}
             value={this.state.inputData}
           />
-          <BotaoPagamento onClick={this.addUser}>Cadastrar Serviço</BotaoPagamento>
-        <ConteinerBotoes>
-        <BotaoPagamento onClick={()=> this.props.tela(0)}>Voltar</BotaoPagamento>
-        </ConteinerBotoes>
-        </ConteinerInfo>
+
+            <button onClick={this.addUser}>Cadastrar</button>
+        
+        <button onClick={()=> this.props.tela(0)}>Voltar</button>
+      </ConteinerInfo>
+
       </MainContainer>
+      
     )
   }
 }
