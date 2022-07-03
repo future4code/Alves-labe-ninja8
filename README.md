@@ -3,7 +3,7 @@
 **Projeto Labeninjas**
 
 
-oitavoninja.surge.sh
+https://oitavoninja.surge.sh/
 
 O Oitavo ninja é um site conecta prestadores de serviço a serviços do dia a dia.
 Nosso site é dinâmico e aqui você consegue contratar os mais diversos tipos de trabalho com apenas um clique, com diversas formas de pagamento e agendamento flexivel!
