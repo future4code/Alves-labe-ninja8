@@ -1,27 +1,50 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { createJob } from '../Components/FuncoesApi'
+import { HeaderStyle } from '../Components/Header'
+import oito from '../img/8.png'
 
 
 const MainContainer = styled.div`
-height:100vh;
+  height: 100vh;
+`
+// Aqui fica os espaços entre os inputs xD
+const InputCadastro = styled.input`
+  margin-top: 0.7vh;
 `
 
-const InputCadastro = styled.input`
-`
+// Aqui fica a estilização do Formulário e.e
 const ConteinerInfo = styled.div`
-display:flex;
-flex-direction:column;
-align-items:center;
-padding-top:10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding-top:10px;
+  font-family: arial;
+  label {
+    margin-top: 4vh;
+    margin-bottom: 1vh;
+    font-weight: bold;
+  }
+  button { /* Aqui fica a estilização dos botões */
+    background-color: #6C161F;
+    color: #E2D8D6;
+    width: 150px;
+    height: 20px;
+    border-radius: 50px;
+    border-color: #952030;
+    margin: 5px;
+      :hover {
+        cursor: pointer;
+        background-color: #E2D8D6;
+        color: #952030;
+      }
+    }   
 `
+// Aqui é o espaço do botão select de pagamento :3
 const SelectOption = styled.select`
-width: 50px;
+width: 150px;
 `
-const ConteinerPagamento = styled.div`
-`
-const BotaoPagamento = styled.button`
-`
+
 
 export default class TelaFormulario extends Component {
   state = {
@@ -63,8 +86,11 @@ export default class TelaFormulario extends Component {
   }
   render() {
     return (
-
       <MainContainer>
+        <HeaderStyle>
+        <img src={oito}></img><h1>O oitavo ninja</h1><img src={oito}></img>
+      
+      </HeaderStyle>
         <ConteinerInfo>
           <h2>Cadastre seu serviço:</h2>
           <InputCadastro
@@ -80,27 +106,27 @@ export default class TelaFormulario extends Component {
             value={this.state.inputPreco}
             onChange={this.onChangePreco}
           />
-          <label for="pagamentos">Escolha a forma de pagamento:</label>
-          <ConteinerPagamento>
+          <label for="pagamentos">Forma de pagamento:</label>
             <div>{this.state.selectPagamento}</div>
             <SelectOption value={this.state.selectPagamento} onChange={this.onChangePagamento}>
-              <option value="credito">Cartão de Crédito</option>
-              <option value="debito">Cartão de Débito</option>
-              <option value="paypal">Paypal</option>
-              <option value="boleto">Boleto</option>
-              <option value="pix">Pix</option>
+              <option value="Crédito ">Cartão de Crédito</option>
+              <option value="Débito ">Cartão de Débito</option>
+              <option value="PayPal ">Paypal</option>
+              <option value="Boleto ">Boleto</option>
+              <option value="Pix ">Pix</option>
             </SelectOption>
-          </ConteinerPagamento>
           <InputCadastro
             id="date"
             type="date"
             onChange={this.onChangeData}
             value={this.state.inputData}
           />
-            <BotaoPagamento onClick={this.addUser}>Cadastrar Serviço</BotaoPagamento>
-        </ConteinerInfo>
+            <button onClick={this.addUser}>Cadastrar</button>
+        
         <button onClick={()=> this.props.tela(0)}>Voltar</button>
+      </ConteinerInfo>
       </MainContainer>
+      
     )
   }
 }

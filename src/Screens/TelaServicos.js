@@ -11,11 +11,11 @@ const ServicosStyle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: arial;
+  font-family: Arial;
   button { /* Aqui fica a estilização dos botões */
     background-color: #6C161F;
     color: #E2D8D6;
-    width: 400px;
+    width: 300px;
     height: 50px;
     border-radius: 50px;
     border-color: #952030;
