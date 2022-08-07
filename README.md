@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# O Oitavo LabeNinja
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Projeto Labeninjas**
 
-## Available Scripts
 
-In the project directory, you can run:
+https://oitavoninja.surge.sh/
 
-### `npm start`
+O Oitavo ninja é um site conecta prestadores de serviço a serviços do dia a dia.
+Nosso site é dinâmico e aqui você consegue contratar os mais diversos tipos de trabalho com apenas um clique, com diversas formas de pagamento e agendamento flexivel!
+Também pode prestar seu serviço, cadastrando rapidamente respondendo um formulário, bem fácil e intuitivo!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Imagens do site
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![print1](https://user-images.githubusercontent.com/104663103/177059373-5618378c-636d-41a9-8df4-c4055966c6c8.jpg)
 
-### `npm test`
+![print2](https://user-images.githubusercontent.com/104663103/177059386-9de720af-3c85-4adb-a181-657820c147bb.jpg)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+![print4](https://user-images.githubusercontent.com/104663103/177059389-6417241c-c3ff-48b0-b125-ed112c5b5698.jpg)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![print 5](https://user-images.githubusercontent.com/104663103/177059391-4bf66bc3-eff4-4647-9187-a787b8231d6a.jpg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Mais sobre o projeto e desenvolvimento!
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+A base do projeto foi feita no wireframe para que seja bem limpo e dinâmico, distribuindo da seguinte forma
+### Header: 
+Contendo botões simples que leva a logo e ao carrinho, também possui uma logo e nome da empresa
+### Home: 
+Na pagina principal o usuário se depara com as opções ofertadas no site, como compra de serviços e cadastro para ser um prestador.
+Pagina de cadastro: O prestador de serviço pode se cadastrar e ofertar o serviço dele em um formulário.
+### Pagina de serviços: 
+O consumidor consegue filtrar os serviços ofertados pelo site.
+### Cards: 
+Em cada card o usuário pode enviar para a pagina de carrinho e finalizar sua compra, também contém mais informações do produto ofertado.
+### Pagina de descrição de serviços: 
+Aqui o consumidor consegue observar todos os detalhes dos serviços do nosso site.
+A distribuição foi feita no conforme a afinidade de cada um.
+### Link do trello:
+https://trello.com/b/XuNY3ddD/projeto-ninja
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### A nossa paleta de cores escolhida:
+https://coolors.co/6c161f-952030-b82f41-e26569-e4b7a4-e2d8d6-bcb4b3-ccc7c1-404241-191b18
+### Wireframe: 
+![WireframeNinja (2)](https://user-images.githubusercontent.com/104742734/176277875-d3c11fec-d7fb-4ba7-8262-c5d43ffcc43a.jpg)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Colaboradores
 
-## Learn More
+1. Arthur Grossi Fernandes 
+2. Gabriela Tobias 
+3. Pétrick Machado de Almeida Grillo 
+4. Adrielli de Aguiar Gross 
+5. Ruan Marques
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
